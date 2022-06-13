@@ -3,6 +3,7 @@ public class Account {
     private int userID;
     private String password;
     private boolean adminStatus;
+    private boolean banned=false;
 
     public Account(String u, String p){
         username = u;
@@ -19,6 +20,12 @@ public class Account {
     public boolean isAdmin(){
         return false;
     }
+
+    public void setAdminStatus(Boolean admin) { this.adminStatus = admin; }
+
+    public boolean isBanned() { return banned; }
+
+    public void setBanned(Boolean banned) { this.banned = banned; }
 
     @Override
     public String toString(){
