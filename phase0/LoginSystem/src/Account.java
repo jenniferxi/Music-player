@@ -18,7 +18,7 @@ public class Account {
         return password;
     }
     public boolean isAdmin(){
-        return false;
+        return adminStatus;
     }
 
     public void setAdminStatus(Boolean admin) { this.adminStatus = admin; }

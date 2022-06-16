@@ -44,6 +44,9 @@ public class LoginSystem {
             if (AM.createAccount(username, password)) {
                 System.out.println("Account created successfully!");
             }
+            else{
+                System.out.println("An account with this username already exists.");
+            }
             display();
         } catch (IOException e) {
             System.out.println("Something went wrong");

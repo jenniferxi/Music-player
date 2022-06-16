@@ -1,12 +1,38 @@
+import java.nio.Buffer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+import java.io.*;
 
 public class AccountManager {
-    private static ArrayList<Account> accounts;
+    private static ArrayList<Account> accounts = new ArrayList<Account>();
     private static Account activeUser;
     private LoginHistory history = new LoginHistory();
 
-    public AccountManager() {
-        accounts = new ArrayList<Account>();
+    public AccountManager(String path) throws FileNotFoundException{
+        Scanner scanner = new Scanner(new FileInputStream(path));
+        String[] line;
+        Account acc;
+
+        while(scanner.hasNextLine()){
+            line = scanner.nextLine().split(",");
+//            acc = new Account(info[0], info[1]);
+//            if(info[2].equals("true")){
+//                acc.setBanned(true);
+//            }
+            if(line[3].equals("true")){
+                createAdminAccount(line[0], line[1]);
+            }
+            else{
+                createAccount(line[0], line[1]);
+            }
+        }
+        scanner.close();
     }
 
     public boolean authenticate(String username, String password) {
@@ -29,7 +55,7 @@ public class AccountManager {
     }
 
     public boolean createAccount(String username, String password) {
-        if (accounts.contains(username)) {
+        if (accounts.contains(getAccountByUsername(username))) {
             return false;
         } else {
             accounts.add(newAccount(username, password, false));
@@ -38,11 +64,20 @@ public class AccountManager {
         }
     }
 
-    public void createAdminAccount(String username, String password) {
-        accounts.add(newAccount(username, password, true));
+    public boolean createAdminAccount(String username, String password) {
+        if (accounts.contains(getAccountByUsername(username))) {
+            return false;
+        } else {
+            accounts.add(newAccount(username, password, true));
+            history.createUser(username);
+            return true;
+        }
     }
 
     public boolean deleteAccount(String username) {
+        if(!accounts.contains(getAccountByUsername(username))){
+            return false;
+        }
         if (isPermitted() && !getAccountByUsername(username).isAdmin()) {
             accounts.remove(getAccountByUsername(username));
             return true;
@@ -56,12 +91,12 @@ public class AccountManager {
         }
     }
 
-    private boolean isPermitted() {
+    public boolean isPermitted() {
         return activeUser.isAdmin();
     }
 
     public String getActiveUser() {
-        return activeUser.getUsername();
+        return activeUser.getUsername() + " adminStatus: " + isPermitted();
     }
 
     public Account getAccountByUsername(String username) {
@@ -84,5 +119,13 @@ public class AccountManager {
             userHistory.append(e.toString());
         }
         return userHistory.toString();
+    }
+
+    public void updateLog(String filePath) throws IOException {
+        PrintWriter oos = new PrintWriter(filePath);
+        for(Account acc : accounts){
+            oos.print(acc.getUsername()+","+acc.getPassword()+","+acc.isBanned()+","+acc.isAdmin()+"\n");
+        }
+        oos.close();
     }
 }
