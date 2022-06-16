@@ -5,10 +5,11 @@ import java.io.InputStreamReader;
 public class LoginSystem {
     private AccountManager AM;
 
-    public LoginSystem(AccountManager accountManager){
+    public LoginSystem(AccountManager accountManager) {
         AM = accountManager;
     }
-    public void display(){
+
+    public void display() {
         System.out.println("Welcome to the login system. \n" +
                 "1. Login to an existing account \n" +
                 "2. Create a new account \n" +
@@ -17,16 +18,13 @@ public class LoginSystem {
 
         try {
             String input = br.readLine();
-            if(input.equals("1")){
+            if (input.equals("1")) {
                 login();
-            }
-            else if (input.equals("2")) {
+            } else if (input.equals("2")) {
                 createAccount();
-            }
-            else if (input.equals("3")) {
+            } else if (input.equals("3")) {
                 System.out.println("Exiting program...");
-            }
-            else{
+            } else {
                 System.out.println("Invalid input, try again...");
                 display();
             }
@@ -35,7 +33,7 @@ public class LoginSystem {
         }
     }
 
-    public void createAccount(){
+    public void createAccount() {
         System.out.println("Please enter a username");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -43,7 +41,7 @@ public class LoginSystem {
             String username = br.readLine();
             System.out.println("Please enter a password");
             String password = br.readLine();
-            if(AM.createAccount(username,password)){
+            if (AM.createAccount(username, password)) {
                 System.out.println("Account created successfully!");
             }
             display();
@@ -52,7 +50,7 @@ public class LoginSystem {
         }
     }
 
-    public void login(){
+    public void login() {
         System.out.println("Please enter your username");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -60,12 +58,12 @@ public class LoginSystem {
             String username = br.readLine();
             System.out.println("Please enter your password");
             String password = br.readLine();
-            if(AM.authenticate(username,password)){
+            if (AM.authenticate(username, password)) {
                 System.out.println("User " + username + " has logged in successfully!");
+                AM.setActiveUser(username);
                 MainMenu m = new MainMenu(AM);
                 m.run();
-            }
-            else{
+            } else {
                 System.out.println("There's an error with the username or password.");
             }
             display();

@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +16,6 @@ public class LoginHistory {
     public void createUser(String username) {
         ArrayList<LoginLog> history = new ArrayList<>();
         loginHistory.put(username, history);
-
     }
 
     public List<LoginLog> getHistory(String username) {

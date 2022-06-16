@@ -22,7 +22,7 @@ public class MainMenu {
                 System.out.println("Logging out of account...");
             }
             else if (input.equals("2")) {
-                System.out.println("This hasn't been implemented yet...");
+                System.out.println(AM.getUserLoginHistory(AM.getActiveUser()));
                 run();
             }
             else if (input.equals("3")) {
