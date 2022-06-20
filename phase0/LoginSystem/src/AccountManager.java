@@ -96,7 +96,7 @@ public class AccountManager {
     }
 
     public String getActiveUser() {
-        return activeUser.getUsername() + " adminStatus: " + isPermitted();
+        return activeUser.getUsername();
     }
 
     public Account getAccountByUsername(String username) {
