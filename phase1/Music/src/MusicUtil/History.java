@@ -1,3 +1,7 @@
+package MusicUtil;
+
+import MusicUtil.Playlist;
+
 public class History extends Playlist {
 
     public History() {

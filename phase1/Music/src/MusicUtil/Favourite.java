@@ -1,3 +1,7 @@
+package MusicUtil;
+
+import MusicUtil.Playlist;
+
 public class Favourite extends Playlist {
     public Favourite() {
         super();

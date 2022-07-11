@@ -1,3 +1,9 @@
+package MusicUtil;
+
+import MusicUtil.Album;
+import MusicUtil.Favourite;
+import MusicUtil.Playlist;
+
 import java.util.ArrayList;
 import java.util.List;
 

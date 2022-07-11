@@ -1,3 +1,5 @@
+package MusicUtil;
+
 import java.util.List;
 
 public class Album extends Playlist {

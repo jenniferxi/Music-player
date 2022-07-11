@@ -1,3 +1,7 @@
+package MusicUtil;
+
+import MusicUtil.Playlist;
+
 public class CurrentlyPlaying extends Playlist {
     public CurrentlyPlaying(Integer musicid) {
         super();

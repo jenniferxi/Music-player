@@ -1,3 +1,7 @@
+package MusicUtil;
+
+import MusicUtil.Playlist;
+
 public class CustomPlaylist extends Playlist {
     public CustomPlaylist(String name) {
         super(name);
