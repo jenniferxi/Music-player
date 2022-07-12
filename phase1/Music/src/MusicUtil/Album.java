@@ -3,19 +3,15 @@ package MusicUtil;
 import java.util.List;
 
 public class Album extends Playlist {
-    private final String artist;
-    private String genre;
+    public final String artist;
+    public final String genre;
+    public final int releaseYear;
 
-    public Album(String name, String artist, List<Integer> musicid) {
-        super(name);
-        this.artist = artist;
-        musics = musicid;
-    }
-
-    public Album(String name, String artist, String genre, List<Integer> musicid) {
+    public Album(String name, String artist, String genre, int year, List<Integer> musicid) {
         super(name);
         this.artist = artist;
         this.genre = genre;
+        this.releaseYear = year;
         musics = musicid;
     }
 
@@ -34,7 +30,14 @@ public class Album extends Playlist {
         return false;
     }
 
-    public String getGenre() {
-        return genre;
+    @Override
+    public boolean isSharable() {
+        return true;
     }
+
+    @Override
+    public List getMusics() {
+        return super.musics;
+    }
+
 }
