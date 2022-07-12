@@ -2,6 +2,8 @@ package MusicUtil;
 
 import MusicUtil.Playlist;
 
+import java.util.List;
+
 public class History extends Playlist {
 
     public History() {
@@ -23,5 +25,15 @@ public class History extends Playlist {
     public boolean empty() {
         super.musics.clear();
         return true;
+    }
+
+    @Override
+    public boolean isSharable() {
+        return false;
+    }
+
+    @Override
+    public List getMusics() {
+        return super.musics;
     }
 }

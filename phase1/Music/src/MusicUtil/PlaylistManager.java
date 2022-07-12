@@ -16,14 +16,8 @@ public class PlaylistManager {
         playlists.add(f);
     }
 
-    public void CreateAlbum(String name, String artist, List<Integer> musicid) {
-        Album a = new Album(name, artist, musicid);
+    public void CreateAlbum(String name, String artist, String genre,int year, List<Integer> musicid) {
+        Album a = new Album(name, artist, genre,year, musicid);
         playlists.add(a);
     }
-
-    public void CreateAlbum(String name, String artist, String genre, List<Integer> musicid) {
-        Album a = new Album(name, artist, genre, musicid);
-        playlists.add(a);
-    }
-
 }
