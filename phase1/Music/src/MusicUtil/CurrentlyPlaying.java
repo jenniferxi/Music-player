@@ -1,7 +1,5 @@
 package MusicUtil;
 
-import MusicUtil.Playlist;
-
 import java.util.List;
 
 public class CurrentlyPlaying extends Playlist {
@@ -16,8 +14,8 @@ public class CurrentlyPlaying extends Playlist {
     }
 
     @Override
-    public boolean add(Integer musicid) {
-        super.musics.add(musicid);
+    public boolean add(List<Integer> songs) {
+        super.musics.addAll(songs);
         return true;
     }
 

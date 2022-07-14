@@ -1,15 +1,18 @@
 package MusicUtil;
 
-import MusicUtil.Playlist;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Favourite extends Playlist {
     private boolean sharable;
+    public final String owner;
+    private List<String> recipients;
 
-    public Favourite() {
+    public Favourite(String owner) {
         super();
         this.sharable = false;
+        this.owner = owner;
+        this.recipients = new ArrayList<>();
     }
 
     public void setSharable(boolean sharable) {
@@ -17,8 +20,8 @@ public class Favourite extends Playlist {
     }
 
     @Override
-    public boolean add(Integer musicid) {
-        super.musics.add(musicid);
+    public boolean add(List<Integer> songs) {
+        super.musics.addAll(songs);
         return true;
     }
 
@@ -44,5 +47,17 @@ public class Favourite extends Playlist {
             return super.musics;
         }
         return null;
+    }
+
+    public List<String> getRecipients() {
+        return recipients;
+    }
+
+    public void addRecipient(String recipient) {
+        recipients.add(recipient);
+    }
+
+    public boolean removeRecipient(String recipient) {
+        return recipients.remove(recipient);
     }
 }

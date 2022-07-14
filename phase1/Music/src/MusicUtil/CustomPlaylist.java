@@ -1,17 +1,22 @@
 package MusicUtil;
 
-import MusicUtil.Playlist;
+import java.util.List;
 
 import java.util.List;
 
 public class CustomPlaylist extends Playlist {
-    public CustomPlaylist(String name) {
+    private boolean sharable;
+    public final String Owner;
+
+    public CustomPlaylist(String name, String Owner) {
         super(name);
+        this.sharable = false;
+        this.Owner = Owner;
     }
 
     @Override
-    public boolean add(Integer musicid) {
-        super.musics.add(musicid);
+    public boolean add(List<Integer> songs) {
+        super.musics.addAll(songs);
         return true;
     }
 
@@ -28,11 +33,11 @@ public class CustomPlaylist extends Playlist {
 
     @Override
     public boolean isSharable() {
-        return true;
+        return sharable;
     }
 
     @Override
     public List getMusics() {
-        return null;
+        return super.musics;
     }
 }

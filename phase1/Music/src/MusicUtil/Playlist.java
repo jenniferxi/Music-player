@@ -4,10 +4,10 @@ import java.io.File;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
-import jaco.mp3.player.MP3Player;
+//import jaco.mp3.player.MP3Player;
 
 public abstract class Playlist {
-    protected List<Integer> musics;
+    protected List<Integer> musics;//change to musics object, a pointer toward the actual file, be minimal
     private String name;
     private String about = "";
 
@@ -26,12 +26,12 @@ public abstract class Playlist {
     }
 
 
-    public abstract boolean add(Integer musicid);
+    public abstract boolean add(List<Integer> songs);//TODO: return specific reason for unable to add(String)
 
 
-    public abstract boolean remove(Integer musicid);
+    public abstract boolean remove(Integer musicid);//TODO: return specific reason for unable to remove(String)
 
-    public abstract boolean empty();
+    public abstract boolean empty();//TODO: return specific reason for unable to empty(String)
 
     public abstract boolean isSharable();
 
@@ -52,10 +52,7 @@ public abstract class Playlist {
     public void setAbout(String about) {
         this.about = about;
     }
-
-    public List content() {
-        return musics;
-    }
+    
 
     public void play(){
 //        MP3Player player = new MP3Player();

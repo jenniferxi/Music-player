@@ -16,7 +16,7 @@ public class Album extends Playlist {
     }
 
     @Override
-    public boolean add(Integer musicid) {
+    public boolean add(List songs) {
         return false;
     }
 

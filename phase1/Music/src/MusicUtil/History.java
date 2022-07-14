@@ -1,7 +1,5 @@
 package MusicUtil;
 
-import MusicUtil.Playlist;
-
 import java.util.List;
 
 public class History extends Playlist {
@@ -11,8 +9,8 @@ public class History extends Playlist {
     }
 
     @Override
-    public boolean add(Integer musicid) {
-        super.musics.add(musicid);
+    public boolean add(List<Integer> songs) {
+        super.musics.addAll(songs);
         return true;
     }
 
