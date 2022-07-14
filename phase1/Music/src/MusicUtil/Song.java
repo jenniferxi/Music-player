@@ -18,7 +18,27 @@ public class Song {
         this.id = id;
     }
 
+    public Song(String name){
+        this.name=name;
+    }
+
     public String getFilepath(){
         return filepath;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
