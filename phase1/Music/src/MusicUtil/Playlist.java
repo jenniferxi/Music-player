@@ -1,7 +1,10 @@
 package MusicUtil;
 
+import java.io.File;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
+import jaco.mp3.player.MP3Player;
 
 public abstract class Playlist {
     protected List<Integer> musics;
@@ -52,6 +55,16 @@ public abstract class Playlist {
 
     public List content() {
         return musics;
+    }
+
+    public void play(){
+//        MP3Player player = new MP3Player();
+//        for(Song song : musics){
+//            player.addToPlayList(new File(song.getFilepath()));
+//        }
+//        player.play();
+        // uncomment this method when we've replaced the musics variable with a List of Songs instead of a
+        // List of Integers.
     }
 
 }

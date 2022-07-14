@@ -2,6 +2,8 @@ package MusicUtil;
 
 import MusicUtil.Playlist;
 
+import java.util.List;
+
 public class CustomPlaylist extends Playlist {
     public CustomPlaylist(String name) {
         super(name);
@@ -22,5 +24,15 @@ public class CustomPlaylist extends Playlist {
     public boolean empty() {
         super.musics.clear();
         return true;
+    }
+
+    @Override
+    public boolean isSharable() {
+        return true;
+    }
+
+    @Override
+    public List getMusics() {
+        return null;
     }
 }

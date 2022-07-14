@@ -1,30 +1,25 @@
 package Commands;
 
+import java.util.List;
 import java.util.Scanner;
 import Main.Program;
 import Main.AccountManager;
 
 public class Login extends Command {
 
-    public void executeCommand(AccountManager AM, Program p){
-        if(p.getLocation() == 0){
-            Scanner in = new Scanner(System.in);
-            System.out.println("Enter username");
-            String username = in.nextLine();
-            System.out.println("Enter password");
-            String password = in.nextLine();
-            if(AM.authenticate(username, password)){
-                System.out.println("login successful");
-                System.out.println(AM.getActiveUser());
-                p.mainMenu();
-            }
-            else {
-                System.out.println("login failed");
-                p.loginDisplay();
-            }
+    public Login(){
+        super(2, 0);
+    }
+    public void executeCommand(AccountManager AM, Program p, List<String> args) throws CommandException{
+        checkArguments(args);
+        checkLocation(p);
+        if(AM.authenticate(args.get(0), args.get(1))){
+            p.loginMsg();
+            p.mainMenu();
         }
         else{
-            System.out.println("can't use that command here");
+            p.loginFail();
+            p.loginDisplay();
         }
     }
 }

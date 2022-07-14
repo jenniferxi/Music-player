@@ -18,7 +18,7 @@ public class Song {
         this.id = id;
     }
 
-    public void play(){
-        //This is the method that we call to actually play the song.
+    public String getFilepath(){
+        return filepath;
     }
 }
