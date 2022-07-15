@@ -1,20 +1,71 @@
 package MusicUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class PlaylistManager {
-    private List<Playlist> playlists;//change to map
     private Map<String, Favourite> favourites;
+    private Map<Integer, CustomPlaylist> playlists;
+    private List<Album> albums;
+    private int albumCounter = 0;
+
 
     public PlaylistManager() {
-        this.playlists = new ArrayList<>();
+        this.albums = new ArrayList<>();
+        this.favourites = new HashMap<>();
+        this.playlists = new HashMap<>();
     }
 
-    public void CreateAlbum(String name, String artist, String genre, int year, List<Integer> musicid) {
+    public boolean CreateAlbum(String name, String artist, String genre, int year, List<Integer> musicid) {
+        for (Album a : albums) {
+            if (name.equals(a.getName()) && artist.equals(a.getArtist())) {
+                return false;
+            }
+        }
         Album a = new Album(name, artist, genre, year, musicid);
-        playlists.add(a);
+        albums.add(a);
+        return true;
+    }
+
+    public List getAlbumByName(String name) {
+        for (Album a : albums) {
+            if (name.equals(a.getName())) {
+                return a.getMusics();
+            }
+        }
+        return null;
+    }
+
+    public List getAlbumByGenre(String genre) {
+        List<Album> result = new ArrayList<>();
+        for (Album a : albums) {
+            if (genre.equals(a.getGenre())) {
+                result.add(a);
+            }
+        }
+        return result;
+    }
+
+    public List getAlbumByArtist(String artist) {
+        List<Album> result = new ArrayList<>();
+        for (Album a : albums) {
+            if (artist.equals(a.getArtist())) {
+                result.add(a);
+            }
+        }
+        return result;
+    }
+
+    public boolean removeAlbum(String artist, String name) {
+        for (Album a : albums) {
+            if (artist.equals(a.getArtist()) && name.equals(a.getName())) {
+                albums.remove(a);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void CreateFavorite(String owner, boolean sharable) {
@@ -58,4 +109,23 @@ public class PlaylistManager {
         return null;
     }
 
+    //For test purpose only
+    public static void main(String[] args) {
+        PlaylistManager p = new PlaylistManager();
+        List<Integer> temp = new ArrayList<>();
+        temp.add(1);
+        temp.add(2);
+        System.out.println(p.CreateAlbum("Whenever You Need Somebody", "Rick Astley", "pop", 1987, temp));
+        System.out.println(p.CreateAlbum("Whenever You Need Somebody", "Rick Astley", "pop", 1987, temp));
+        System.out.println(p.CreateAlbum("Mylo Xyloto", "Coldplay", "alternative", 2011, temp));
+        System.out.println(p.getAlbumByArtist("TheFatRat"));
+        System.out.println(p.getAlbumByArtist("Coldplay"));
+        System.out.println(p.getAlbumByGenre("hip pop"));
+        System.out.println(p.getAlbumByGenre("pop"));
+        System.out.println(p.getAlbumByName("Mylo Xyloto"));
+        System.out.println(p.getAlbumByName("Monody"));
+        System.out.println(p.removeAlbum("Rick Astley","Whenever You Need Somebody"));
+        System.out.println(p.removeAlbum("TheFatRat","Monody"));
+    }
 }
+

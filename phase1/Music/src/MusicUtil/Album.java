@@ -3,9 +3,9 @@ package MusicUtil;
 import java.util.List;
 
 public class Album extends Playlist {
-    public final String artist;
-    public final String genre;
-    public final int releaseYear;
+    private String artist;
+    private String genre;
+    private int releaseYear;
 
     public Album(String name, String artist, String genre, int year, List<Integer> musicid) {
         super(name);
@@ -40,4 +40,11 @@ public class Album extends Playlist {
         return super.musics;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
 }

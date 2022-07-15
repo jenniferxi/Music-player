@@ -1,7 +1,5 @@
 package MusicUtil;
 
-import java.io.File;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 //import jaco.mp3.player.MP3Player;
@@ -52,9 +50,9 @@ public abstract class Playlist {
     public void setAbout(String about) {
         this.about = about;
     }
-    
 
-    public void play(){
+
+    public void play() {
 //        MP3Player player = new MP3Player();
 //        for(Song song : musics){
 //            player.addToPlayList(new File(song.getFilepath()));
