@@ -1,13 +1,12 @@
 package MusicUtil;
 
-import java.util.*;
 import java.util.List;
 
-public class Shuffle extends Playlist{
+public class RepeatOne extends Playlist{
 
-    public Shuffle(List<Song> currentPlaylist) {
-        super();
-        Collections.shuffle(currentPlaylist);
+    public RepeatOne(List<Song> currentPlaylist) {
+        Song s = currentPlaylist.get(0);
+        currentPlaylist.add(1, s);
     }
 
     @Override

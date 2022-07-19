@@ -36,7 +36,7 @@ public class CurrentlyPlaying extends Playlist {
     }
 
     @Override
-    public List getMusics() {
+    public List<Song> getMusics() {
         return super.musics;
     }
 }

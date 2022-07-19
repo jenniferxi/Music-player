@@ -2,15 +2,15 @@ package MusicUtil;
 
 import java.util.*;
 import java.util.List;
+import java.util.ArrayList;
 
-public class Repeat extends Playlist{
+public class RepeatAll extends Playlist{
 
-    public Repeat(List<Song> currentPlaylist) {
-
-        super();
-
-        // while loop for repeating the playlist
-        System.out.println(currentPlaylist);
+    public RepeatAll(List<Song> currentPlaylist) {
+        // TODO: Loop the current playlist
+        Song s = currentPlaylist.get(0);
+        currentPlaylist.remove(0);
+        currentPlaylist.add(s);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Repeat extends Playlist{
     }
 
     @Override
-    public List getMusics() {
+    public List<Song> getMusics() {
         return super.musics;
     }
 }
