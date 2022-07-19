@@ -7,12 +7,12 @@ public class Album extends Playlist {
     private String genre;
     private int releaseYear;
 
-    public Album(String name, String artist, String genre, int year, List<Integer> musicid) {
+    public Album(String name, String artist, String genre, int year, List<Song> songs) {
         super(name);
         this.artist = artist;
         this.genre = genre;
         this.releaseYear = year;
-        musics = musicid;
+        musics = songs;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Album extends Playlist {
     }
 
     @Override
-    public boolean remove(Integer musicid) {
+    public boolean remove(Song song) {
         return false;
     }
 

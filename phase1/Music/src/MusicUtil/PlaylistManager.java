@@ -10,15 +10,19 @@ public class PlaylistManager {
     private Map<Integer, CustomPlaylist> playlists;
     private List<Album> albums;
     private int albumCounter = 0;
+    private SongManager SM;
+    private CustomPlaylist allSongs = new CustomPlaylist("","");
 
 
-    public PlaylistManager() {
+    public PlaylistManager(SongManager SM) {
         this.albums = new ArrayList<>();
         this.favourites = new HashMap<>();
         this.playlists = new HashMap<>();
+        this.SM = SM;
+        allSongs.add(SM.getAllSongs());
     }
 
-    public boolean CreateAlbum(String name, String artist, String genre, int year, List<Integer> musicid) {
+    public boolean CreateAlbum(String name, String artist, String genre, int year, List<Song> musicid) {
         for (Album a : albums) {
             if (name.equals(a.getName()) && artist.equals(a.getArtist())) {
                 return false;
@@ -68,6 +72,10 @@ public class PlaylistManager {
         return false;
     }
 
+    public Playlist getAllSongs(){
+        return allSongs;
+    }
+
     public void CreateFavorite(String owner, boolean sharable) {
         Favourite f = new Favourite(owner);
         favourites.put(owner, f);
@@ -78,7 +86,7 @@ public class PlaylistManager {
         return f.getMusics();
     }
 
-    public boolean removeFavMusic(String owner, Integer songID) {
+    public boolean removeFavMusic(String owner, Song songID) {
         Favourite f = favourites.get(owner);
         if (f.remove(songID)) {
             favourites.replace(owner, f);
@@ -111,13 +119,14 @@ public class PlaylistManager {
 
     //For test purpose only
     public static void main(String[] args) {
-        PlaylistManager p = new PlaylistManager();
+        SongManager SM = new SongManager();
+        PlaylistManager p = new PlaylistManager(SM);
         List<Integer> temp = new ArrayList<>();
         temp.add(1);
         temp.add(2);
-        System.out.println(p.CreateAlbum("Whenever You Need Somebody", "Rick Astley", "pop", 1987, temp));
-        System.out.println(p.CreateAlbum("Whenever You Need Somebody", "Rick Astley", "pop", 1987, temp));
-        System.out.println(p.CreateAlbum("Mylo Xyloto", "Coldplay", "alternative", 2011, temp));
+//        System.out.println(p.CreateAlbum("Whenever You Need Somebody", "Rick Astley", "pop", 1987, temp));
+//        System.out.println(p.CreateAlbum("Whenever You Need Somebody", "Rick Astley", "pop", 1987, temp));
+//        System.out.println(p.CreateAlbum("Mylo Xyloto", "Coldplay", "alternative", 2011, temp));
         System.out.println(p.getAlbumByArtist("TheFatRat"));
         System.out.println(p.getAlbumByArtist("Coldplay"));
         System.out.println(p.getAlbumByGenre("hip pop"));

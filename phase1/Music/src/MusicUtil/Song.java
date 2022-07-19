@@ -9,13 +9,12 @@ public class Song {
     private Integer id;
     private Integer duration;
 
-    public Song(String name, String albumName, String artist, String genre, String filepath, Integer id){
+    public Song(String name, String albumName, String artist, String genre, String filepath){
         this.name = name;
         this.albumName = albumName;
         this.artist = artist;
         this.genre = genre;
         this.filepath = filepath;
-        this.id = id;
     }
 
     public Song(String name){
@@ -30,6 +29,10 @@ public class Song {
         return name;
     }
 
+    public String getArtist(){
+        return artist;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -40,5 +43,9 @@ public class Song {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String artistTitleAlbum(){
+        return artist + " - " + name + " (" + albumName + ")";
     }
 }

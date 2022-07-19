@@ -9,13 +9,13 @@ public class History extends Playlist {
     }
 
     @Override
-    public boolean add(List<Integer> songs) {
+    public boolean add(List<Song> songs) {
         super.musics.addAll(songs);
         return true;
     }
 
     @Override
-    public boolean remove(Integer musicid) {
+    public boolean remove(Song musicid) {
         return (super.musics.remove(musicid));
     }
 

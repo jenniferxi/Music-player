@@ -1,13 +1,28 @@
 package Main;
 
+import MusicUtil.Playlist;
+import MusicUtil.PlaylistManager;
+import MusicUtil.Song;
+import MusicUtil.SongManager;
+import jaco.mp3.player.MP3Player;
+
 public class Program {
     private boolean running;
     private AccountManager AM;
     private int location;
 
-    public Program(AccountManager accountManager){
+    private SongManager SM;
+
+    private MP3Player player = new MP3Player();
+
+    private Playlist currPlaylist;
+    private PlaylistManager PM;
+
+    public Program(AccountManager accountManager, SongManager songManager, PlaylistManager playlistManager){
         this.running =true;
         AM = accountManager;
+        SM = songManager;
+        PM = playlistManager;
         location = 0;
     }
 
@@ -31,6 +46,30 @@ public class Program {
     public void mainMenu(){
         location = 1;
         System.out.println("you are now at the main menu");
+    }
+
+    public void allSongs(){
+        location = 2;
+        for(Song song : SM.getAllSongs()){
+            System.out.println(song.artistTitleAlbum() + " " + song.getId());
+        }
+        setCurrentPlaylist(PM.getAllSongs());
+    }
+
+    private void setCurrentPlaylist(Playlist playlist){
+        currPlaylist = playlist;
+    }
+
+    public void play(){
+        currPlaylist.play(player);
+    }
+
+    public void pause(){
+        player.pause();
+    }
+
+    public void stop(){
+        player.stop();
     }
 
     public void loginMsg(){

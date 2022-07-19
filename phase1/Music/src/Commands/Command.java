@@ -21,6 +21,12 @@ public abstract class Command {
         }
     }
 
+    public void checkLocationSpecialLmao(Program p) throws CommandException{
+        if(p.getLocation() < 1){
+            throw new CommandException("can't use that command here");
+        }
+    }
+
     public void checkArguments(List<String> arguments) throws CommandException{
         if(arguments.size() != expectedArguments){
             throw new CommandException("wrong number of arguments provided");
