@@ -54,10 +54,15 @@ public class Favourite extends Playlist {
     }
 
     public void addRecipient(String recipient) {
-        recipients.add(recipient);
+        if (!recipients.contains(recipient)) {
+            recipients.add(recipient);
+        }
     }
 
     public boolean removeRecipient(String recipient) {
-        return recipients.remove(recipient);
+        if (recipient.contains(recipient)) {
+            return recipients.remove(recipient);
+        }
+        return false;
     }
 }

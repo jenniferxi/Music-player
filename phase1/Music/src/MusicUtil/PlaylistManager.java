@@ -9,9 +9,9 @@ public class PlaylistManager {
     private Map<String, Favourite> favourites;
     private Map<Integer, CustomPlaylist> playlists;
     private List<Album> albums;
-    private int albumCounter = 0;
+    private int playlistCounter = 0;
     private SongManager SM;
-    private CustomPlaylist allSongs = new CustomPlaylist("","");
+    private CustomPlaylist allSongs = new CustomPlaylist("", "");
 
 
     public PlaylistManager(SongManager SM) {
@@ -72,12 +72,13 @@ public class PlaylistManager {
         return false;
     }
 
-    public Playlist getAllSongs(){
+    public Playlist getAllSongs() {
         return allSongs;
     }
 
     public void CreateFavorite(String owner, boolean sharable) {
         Favourite f = new Favourite(owner);
+        f.setSharable(sharable);
         favourites.put(owner, f);
     }
 
@@ -117,6 +118,58 @@ public class PlaylistManager {
         return null;
     }
 
+    //break
+    public int CreatePlaylist(String name, String owner, boolean sharable) {
+        CustomPlaylist c = new CustomPlaylist(name, owner);
+        c.setSharable(sharable);
+        playlists.put(playlistCounter, c);
+        playlistCounter++;
+        return playlistCounter - 1;
+    }
+
+    public List OwnerGetPlaylist(int playlistID, String owner) {
+        Favourite c = favourites.get(playlistID);
+        if (c.owner.equals(owner)) {
+            return c.getMusics();
+        } else return null;
+    }
+
+    public boolean removeMusicInPlaylist(int playlistID, String owner, Song songID) {
+        CustomPlaylist c = playlists.get(playlistID);
+        if (c.Owner.equals(owner)) {
+            if (c.remove(songID)) {
+                playlists.replace(playlistID, c);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void sharePlaylist(int playlistID,String owner, String recipient) {
+        CustomPlaylist c = playlists.get(playlistID);
+        if(c.Owner.equals(owner)){
+            c.addRecipient(recipient);
+            playlists.replace(playlistID, c);
+        }
+    }
+
+    public void setPlaylistPublic(int playlistID,String owner) {
+        CustomPlaylist c = playlists.get(playlistID);
+        c.setSharable(true);
+        playlists.replace(playlistID, c);
+
+    }
+
+    public List othersAccessSharedFav(int playlistID, String user) {
+        CustomPlaylist f = playlists.get(playlistID);
+        List recipients = f.getRecipients();
+        if (recipients.contains(user) || f.isSharable()) {
+            return f.getMusics();
+        }
+        return null;
+    }
+
+
     //For test purpose only
     public static void main(String[] args) {
         SongManager SM = new SongManager();
@@ -133,8 +186,8 @@ public class PlaylistManager {
         System.out.println(p.getAlbumByGenre("pop"));
         System.out.println(p.getAlbumByName("Mylo Xyloto"));
         System.out.println(p.getAlbumByName("Monody"));
-        System.out.println(p.removeAlbum("Rick Astley","Whenever You Need Somebody"));
-        System.out.println(p.removeAlbum("TheFatRat","Monody"));
+        System.out.println(p.removeAlbum("Rick Astley", "Whenever You Need Somebody"));
+        System.out.println(p.removeAlbum("TheFatRat", "Monody"));
     }
 }
 
