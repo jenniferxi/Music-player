@@ -7,8 +7,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Executes command accordingly with provided arguments
+ */
+
 public class CommandController {
 
+    /**
+     * Executes the provided command
+     *
+     * @param AM account manager
+     * @param p program
+     * @param input input argument
+     */
     public void executeCommand(AccountManager AM, Program p, String input){
         List<String> args = getArgs(input);
         String[] split = input.split(" ");

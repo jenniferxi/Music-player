@@ -2,7 +2,15 @@ package Commands;
 
 import java.util.*;
 
+/**
+ * Constant variables in the program
+ */
+
 public class Constants {
+
+    /**
+     * Command map
+     */
     public static final Hashtable<String, Command> COMMAND_MAP = new Hashtable<String, Command>();
 
     static{
