@@ -10,6 +10,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+ /**
+  * Manages songs
+  */
+
  public class SongManager {
     private static ArrayList<Song> allSongs = new ArrayList<>();
     private static Hashtable<Integer, Song> songMap = new Hashtable<>();
@@ -17,17 +21,33 @@ import java.util.*;
     private static Integer songCount = 0;
     private File songFile = new File("songs");
 
-    public static void addSong(Song song ){
+     /**
+      * Add song to the list containing all songs
+      *
+      * @param song song to be added
+      */
+    public static void addSong(Song song){
         song.setId(songCount);
         allSongs.add(song);
         songMap.put(songCount, song);
         songCount++;
     }
 
+     /**
+      * Get all songs
+      *
+      * @return the list containing all songs
+      */
     public List<Song> getAllSongs(){
         return allSongs;
     }
 
+     /**
+      * Add song to music library
+      *
+      * @param songIndex the index of song in the library
+      * @param libraryName name of library
+      */
     public static void addSongToLibrary(Integer songIndex, String libraryName){
         boolean isExist = checkIfSongExists(songIndex, libraryName);
         if(!isExist) {
@@ -35,6 +55,12 @@ import java.util.*;
         }
     }
 
+     /**
+      * Remove song from music library
+      *
+      * @param songIndex the index of song in the library
+      * @param libraryName name of library
+      */
      public static void removeSongFromLibrary(Integer songIndex, String libraryName){
          boolean isExist = checkIfSongExists(songIndex, libraryName);
          if(isExist) {
@@ -42,6 +68,13 @@ import java.util.*;
          }
      }
 
+     /**
+      * Check whether song exists
+      *
+      * @param songIndex the index of song in the library
+      * @param libraryName name of library
+      * @return true if song exists
+      */
      public static boolean checkIfSongExists(Integer songIndex, String libraryName) {
          List<Song> songList = libraryMap.get(libraryName);
          if(songList==null) {
@@ -60,9 +93,16 @@ import java.util.*;
          return isExist;
      }
 
+     /**
+      * Get songs from music library
+      *
+      * @param library name of the library
+      * @return the list of songs from that library
+      */
      public static List<Song> getSongsFromLibrary(String library){
         return libraryMap.get(library);
      }
+
 
      public void initializeSongs() throws Exception{
         try{
