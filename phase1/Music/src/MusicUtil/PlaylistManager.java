@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Manages all playlists
+ */
+
 public class PlaylistManager {
     private Map<String, Favourite> favourites;
     private Map<Integer, CustomPlaylist> playlists;

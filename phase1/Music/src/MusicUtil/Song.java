@@ -1,5 +1,9 @@
 package MusicUtil;
 
+/**
+ * A song
+ */
+
 public class Song {
     private String name;
     private String albumName;

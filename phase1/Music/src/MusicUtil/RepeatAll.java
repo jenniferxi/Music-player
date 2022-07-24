@@ -4,8 +4,17 @@ import java.util.*;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Repeat all songs in the playlist
+ */
+
 public class RepeatAll extends Playlist{
 
+    /**
+     * Construct repeating all songs
+     *
+     * @param currentPlaylist the playlist currently playing
+     */
     public RepeatAll(List<Song> currentPlaylist) {
         // TODO: Loop the current playlist
         Song s = currentPlaylist.get(0);

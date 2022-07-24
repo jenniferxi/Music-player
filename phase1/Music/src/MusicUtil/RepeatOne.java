@@ -2,8 +2,17 @@ package MusicUtil;
 
 import java.util.List;
 
+/**
+ * Repeat one song
+ */
+
 public class RepeatOne extends Playlist{
 
+    /**
+     * Construct repeating one song
+     *
+     * @param currentPlaylist the playlist currently playing
+     */
     public RepeatOne(List<Song> currentPlaylist) {
         Song s = currentPlaylist.get(0);
         currentPlaylist.add(1, s);

@@ -2,8 +2,15 @@ package MusicUtil;
 
 import java.util.List;
 
+/**
+ * A history of the list of songs played previously in the current session
+ */
+
 public class History extends Playlist {
 
+    /**
+     * Constructs history
+     */
     public History() {
         super();
     }
