@@ -25,5 +25,9 @@ public class Constants {
         COMMAND_MAP.put("mainmenu", new MainMenu());
         COMMAND_MAP.put("play", new Play());
         COMMAND_MAP.put("pause", new Pause());
+        COMMAND_MAP.put("forward", new SkipForward());
+        COMMAND_MAP.put("backward", new SkipBackwards());
+        COMMAND_MAP.put("shuffle", new Shuffle());
+        COMMAND_MAP.put("repeat", new Repeat());
     }
 }

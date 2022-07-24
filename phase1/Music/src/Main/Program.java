@@ -174,4 +174,50 @@ public class Program {
     public void getLoginHistory(){
         System.out.println(AM.getUserLoginHistory(AM.getActiveUser()));
     }
+
+    //TODO: rework this
+
+    /**
+     * Toggles the music player's repeat status between on and off
+     */
+    public void repeat(){
+        if(player.isRepeat()){
+            System.out.println("music is no longer repeating");
+            player.setRepeat(false);
+        }
+        else{
+            System.out.println("music is now repeating");
+            player.setRepeat(true);
+        }
+    }
+
+    //TODO: rework this
+
+    /**
+     * Toggles the music player's shuffle status between on and off
+     */
+    public void shuffle(){
+        if(player.isShuffle()){
+            System.out.println("music is no longer being shuffled");
+            player.setShuffle(false);
+        }
+        else{
+            System.out.println("music is now being shuffled");
+            player.setShuffle(true);
+        }
+    }
+
+    /**
+     * Skips to the next song in the current playlist
+     */
+    public void skipForward(){
+        player.skipForward();
+    }
+
+    /**
+     * Returns to the previous song in the current playlist
+     */
+    public void skipBackwards(){
+        player.skipBackward();
+    }
 }

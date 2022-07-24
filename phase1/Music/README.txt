@@ -1,3 +1,7 @@
+--First time setup--
+create a folder named "songs" and put any mp3 files you'd like to listen to in that folder.
+for the time being the songs folder may only contain mp3 files themselves, and not folders containing mp3 files.
+
 --Login menu commands--
 login <username> <password>
     login to the account with the given username and password
@@ -27,6 +31,18 @@ play
 
 pause
     pauses the music
+
+forward
+    go forward one song
+
+backward
+    go back one song
+
+shuffle
+    toggle shuffle on/off
+
+repeat
+    toggle repeat on/off
 
 --Global commands--
 exit
