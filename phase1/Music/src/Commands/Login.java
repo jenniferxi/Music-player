@@ -26,7 +26,9 @@ public class Login extends Command {
     public void executeCommand(AccountManager AM, Program p, List<String> args) throws CommandException{
         checkArguments(args);
         checkLocation(p);
-        if(AM.authenticate(args.get(0), args.get(1))){
+        String username = args.get(0);
+        String password = args.get(1);
+        if(AM.authenticate(username, password)){
             p.loginMsg();
             p.mainMenu();
         }

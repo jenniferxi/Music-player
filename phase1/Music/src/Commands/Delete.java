@@ -28,8 +28,8 @@ public class Delete extends Command{
         checkArguments(args);
         checkLocation(p);
         checkPerms(AM);
-
-        if(AM.deleteAccount(args.get(0))){
+        String username = args.get(0);
+        if(AM.deleteAccount(username)){
             p.deleteSuccess();
             p.mainMenu();
         }

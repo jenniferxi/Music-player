@@ -47,7 +47,7 @@ public abstract class Command {
      * @param p program
      * @throws CommandException if command used at login menu
      */
-    public void checkLocationSpecialLmao(Program p) throws CommandException{
+    public void checkLocationMainMenu(Program p) throws CommandException{
         if(p.getLocation() < 1){
             throw new CommandException("can't use that command here");
         }

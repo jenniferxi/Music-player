@@ -27,7 +27,9 @@ public class Create extends Command{
     public void executeCommand(AccountManager AM, Program p, List<String> args) throws CommandException{
         checkArguments(args);
         checkLocation(p);
-        if(AM.createAccount(args.get(0), args.get(1))){
+        String username = args.get(0);
+        String password = args.get(1);
+        if(AM.createAccount(username, password)){
             p.createSuccess();
             p.loginDisplay();
         }

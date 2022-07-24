@@ -28,8 +28,9 @@ public class CreateAdmin extends Command{
         checkArguments(args);
         checkLocation(p);
         checkPerms(AM);
-
-        if(AM.createAdminAccount(args.get(0), args.get(1))){
+        String username = args.get(0);
+        String password = args.get(1);
+        if(AM.createAdminAccount(username, password)){
             p.createSuccess();
             p.mainMenu();
         }

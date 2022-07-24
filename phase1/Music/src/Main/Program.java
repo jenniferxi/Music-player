@@ -81,9 +81,15 @@ public class Program {
      */
     public void allSongs(){
         location = 2;
-        for(Song song : SM.getAllSongs()){
-            System.out.println(song.artistTitleAlbum() + " " + song.getId());
+        if(!SM.getAllSongs().isEmpty()){
+            for(Song song : SM.getAllSongs()){
+                System.out.println(song.getId() + ". " + song.artistTitleAlbum());
+            }
         }
+        else{
+            System.out.println("there are no songs here...");
+        }
+
         setCurrentPlaylist(PM.getAllSongs());
     }
 

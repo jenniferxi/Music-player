@@ -25,7 +25,7 @@ public class MainMenu extends Command{
      */
     public void executeCommand(AccountManager AM, Program p, List<String> args) throws CommandException {
         checkArguments(args);
-        checkLocationSpecialLmao(p);
+        checkLocationMainMenu(p);
         p.mainMenu();
     }
 }
