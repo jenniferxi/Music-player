@@ -18,6 +18,7 @@ public class LoginLog {
 
     /**
      * Initializes login log
+     *
      * @param successLogin whether login attempt was successful
      */
     public LoginLog(boolean successLogin) {
