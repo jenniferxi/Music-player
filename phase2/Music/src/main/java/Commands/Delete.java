@@ -2,9 +2,9 @@ package Commands;
 
 import Driver.AccountManager;
 import Driver.Program;
+import UI.TextUI;
 
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Admin account can delete account
@@ -29,12 +29,13 @@ public class Delete extends Command{
         checkLocation(p);
         checkPerms(AM);
         String username = args.get(0);
+        TextUI UI = new TextUI(AM, p.getSongManager());
         if(AM.deleteAccount(username)){
-            p.deleteSuccess();
+            UI.accountDeleteSuccess();
             p.mainMenu();
         }
         else{
-            p.deleteFail();
+            UI.accountDeleteFail();
             p.mainMenu();
         }
     }

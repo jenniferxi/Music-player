@@ -2,6 +2,7 @@ package Commands;
 
 import Driver.AccountManager;
 import Driver.Program;
+import UI.TextUI;
 
 import java.util.List;
 
@@ -26,7 +27,8 @@ public class History extends Command{
     public void executeCommand(AccountManager AM, Program p, List<String> args)  throws CommandException{
         checkArguments(args);
         checkLocation(p);
-        p.getLoginHistory();
+        TextUI UI = new TextUI(AM, p.getSongManager());
+        UI.displayLoginHistory();
         p.mainMenu();
     }
 }

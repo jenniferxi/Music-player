@@ -26,6 +26,6 @@ public class Shuffle extends Command{
     public void executeCommand(AccountManager AM, Program p, List<String> args) throws CommandException {
         checkArguments(args);
         checkLocation(p);
-        p.shuffle();
+        // p.shuffle();
     }
 }

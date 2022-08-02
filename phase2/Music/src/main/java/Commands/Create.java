@@ -2,9 +2,9 @@ package Commands;
 
 import Driver.AccountManager;
 import Driver.Program;
+import UI.TextUI;
 
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * User can create new account
@@ -29,12 +29,13 @@ public class Create extends Command{
         checkLocation(p);
         String username = args.get(0);
         String password = args.get(1);
+        TextUI UI = new TextUI(AM, p.getSongManager());
         if(AM.createAccount(username, password)){
-            p.createSuccess();
+            UI.accountCreateSuccess();
             p.loginDisplay();
         }
         else{
-            p.createFail();
+            UI.accountCreateFail();
             p.loginDisplay();
         }
     }

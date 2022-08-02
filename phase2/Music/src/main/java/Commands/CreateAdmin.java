@@ -2,9 +2,9 @@ package Commands;
 
 import Driver.AccountManager;
 import Driver.Program;
+import UI.TextUI;
 
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Admin account can create new admin account
@@ -30,12 +30,13 @@ public class CreateAdmin extends Command{
         checkPerms(AM);
         String username = args.get(0);
         String password = args.get(1);
+        TextUI UI = new TextUI(AM, p.getSongManager());
         if(AM.createAdminAccount(username, password)){
-            p.createSuccess();
+            UI.accountCreateSuccess();
             p.mainMenu();
         }
         else{
-            p.createFail();
+            UI.accountCreateFail();
             p.mainMenu();
         }
     }

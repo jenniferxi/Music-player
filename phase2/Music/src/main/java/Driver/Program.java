@@ -60,6 +60,10 @@ public class Program {
         return location;
     }
 
+    public void setLocation(int i){
+        this.location = i;
+    }
+
     /**
      * Display login menu of program
      */
@@ -179,6 +183,10 @@ public class Program {
      */
     public void getLoginHistory(){
         System.out.println(AM.getUserLoginHistory(AM.getActiveUser()));
+    }
+
+    public SongManager getSongManager(){
+        return this.SM;
     }
 
 //    //TODO: rework this

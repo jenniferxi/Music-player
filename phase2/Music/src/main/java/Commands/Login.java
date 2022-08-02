@@ -1,9 +1,9 @@
 package Commands;
 
 import java.util.List;
-import java.util.Scanner;
 import Driver.Program;
 import Driver.AccountManager;
+import UI.TextUI;
 
 /**
  * User can login to account with correct username and password
@@ -28,12 +28,13 @@ public class Login extends Command {
         checkLocation(p);
         String username = args.get(0);
         String password = args.get(1);
+        TextUI UI = new TextUI(AM, p.getSongManager());
         if(AM.authenticate(username, password)){
-            p.loginMsg();
+            UI.loginSuccess();
             p.mainMenu();
         }
         else{
-            p.loginFail();
+            UI.loginFail();
             p.loginDisplay();
         }
     }
