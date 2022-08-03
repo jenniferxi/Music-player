@@ -1,4 +1,4 @@
-package UI;
+package main.java.UI;
 
 public interface UIMethods {
     public void displayLoginMenu();

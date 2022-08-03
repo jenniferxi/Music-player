@@ -1,8 +1,9 @@
-package Commands;
+package main.java.Commands;
 
-import Driver.AccountManager;
-import Driver.Program;
-import UI.TextUI;
+import main.java.Driver.Program;
+import main.java.UI.TextUI;
+import main.java.Driver.AccountManager;
+
 
 import java.util.List;
 

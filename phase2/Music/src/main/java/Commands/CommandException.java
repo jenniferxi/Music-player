@@ -1,4 +1,4 @@
-package Commands;
+package main.java.Commands;
 
 /**
  * Command exception messages in the program

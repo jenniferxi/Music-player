@@ -1,11 +1,9 @@
-package Driver;
+package main.java.Driver;
+import main.java.Commands.CommandController;
+import main.java.MusicUtil.PlaylistManager;
+import main.java.MusicUtil.SongManager;
 
-import java.io.IOException;
 import java.util.Scanner;
-
-import Commands.CommandController;
-import MusicUtil.PlaylistManager;
-import MusicUtil.SongManager;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -17,7 +15,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
         CommandController CC = new CommandController();
         p.loginDisplay();
-        while(p.isRunning()){
+        while (p.isRunning()) {
             String input = in.nextLine();
             CC.executeCommand(AM, p, input);
         }

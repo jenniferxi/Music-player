@@ -1,9 +1,10 @@
-package Commands;
+package main.java.Commands;
+
+import main.java.Driver.Program;
+import main.java.UI.TextUI;
+import main.java.Driver.AccountManager;
 
 import java.util.List;
-import Driver.Program;
-import Driver.AccountManager;
-import UI.TextUI;
 
 /**
  * User can login to account with correct username and password

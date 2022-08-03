@@ -1,4 +1,4 @@
-package MusicUtil;
+package main.java.MusicUtil;
 
 import java.util.List;
 

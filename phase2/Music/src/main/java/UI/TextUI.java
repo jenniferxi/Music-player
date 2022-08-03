@@ -1,8 +1,9 @@
-package UI;
+package main.java.UI;
 
-import Driver.AccountManager;
-import MusicUtil.Song;
-import MusicUtil.SongManager;
+
+import main.java.Driver.AccountManager;
+import main.java.MusicUtil.Song;
+import main.java.MusicUtil.SongManager;
 
 public class TextUI implements UIMethods{
     private AccountManager AM;
