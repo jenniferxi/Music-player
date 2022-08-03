@@ -1,7 +1,7 @@
-package main.java.Commands;
+package Commands;
 
-import main.java.Driver.Program;
-import main.java.Driver.AccountManager;
+import Driver.AccountManager;
+import Driver.Program;
 
 import java.util.List;
 

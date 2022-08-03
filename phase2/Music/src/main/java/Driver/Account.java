@@ -1,4 +1,4 @@
-package main.java.Driver;
+package Driver;
 
 /**
  * A user account

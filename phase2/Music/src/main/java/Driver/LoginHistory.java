@@ -1,4 +1,4 @@
-package main.java.Driver;
+package Driver;
 
 import java.util.ArrayList;
 import java.util.HashMap;

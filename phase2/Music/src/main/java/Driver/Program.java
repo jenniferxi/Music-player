@@ -1,9 +1,9 @@
-package main.java.Driver;
+package Driver;
 
-import main.java.MusicUtil.Playlist;
-import main.java.MusicUtil.PlaylistManager;
-import main.java.MusicUtil.Song;
-import main.java.MusicUtil.SongManager;
+import MusicUtil.Playlist;
+import MusicUtil.PlaylistManager;
+import MusicUtil.Song;
+import MusicUtil.SongManager;
 // import jaco.mp3.player.MP3Player;
 
 /**

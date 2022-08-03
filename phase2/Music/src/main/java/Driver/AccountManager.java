@@ -1,4 +1,4 @@
-package main.java.Driver;
+package Driver;
 
 import java.nio.Buffer;
 import java.nio.charset.StandardCharsets;

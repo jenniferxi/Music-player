@@ -1,4 +1,4 @@
-package main.java.MusicUtil;
+package MusicUtil;
 
 /**
  * A music library

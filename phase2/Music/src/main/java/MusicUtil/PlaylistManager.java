@@ -1,4 +1,4 @@
-package main.java.MusicUtil;
+package MusicUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,8 +1,8 @@
- package main.java.MusicUtil;
+ package MusicUtil;
 
-import main.java.Commands.CommandController;
-import main.java.Driver.AccountManager;
-import main.java.Driver.Program;
+import Commands.CommandController;
+import Driver.AccountManager;
+import Driver.Program;
 import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.Mp3File;
 

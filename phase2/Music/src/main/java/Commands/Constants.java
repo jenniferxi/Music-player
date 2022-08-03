@@ -1,6 +1,6 @@
-package main.java.Commands;
+package Commands;
 
-import java.util.Hashtable;
+import java.util.*;
 
 /**
  * Constant variables in the program
