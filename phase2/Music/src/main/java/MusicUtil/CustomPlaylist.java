@@ -102,4 +102,11 @@ public class CustomPlaylist extends Playlist {
         }
         return false;
     }
+
+    /**
+     * Get owner of the custom playlist
+     *
+     * @return the owner name
+     */
+    public Object getOwner() { return this.Owner; }
 }

@@ -40,7 +40,9 @@ public class PersistenceService {
 
     public void persistPlayList(Playlist playlist){
         try {
-            FileOutputStream f = new FileOutputStream(new File(playlist.getName()));
+            File targetDir = new File("playlists");
+            File targetFile = new File(targetDir, (playlist.getName()));
+            FileOutputStream f = new FileOutputStream(targetFile);
             ObjectOutputStream o = new ObjectOutputStream(f);
 
             // Write objects to file
@@ -49,10 +51,10 @@ public class PersistenceService {
             o.close();
             f.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Cannot find file:"+e.getMessage());
+            System.out.println("Cannot find file: "+e.getMessage());
             throw new RuntimeException(e);
         } catch (IOException e) {
-            System.out.println("Error initializing stream:"+e.getMessage());
+            System.out.println("Error initializing stream: "+e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -66,7 +68,9 @@ public class PersistenceService {
 
     public Playlist getPlayListByName(String name){
         try {
-            FileInputStream finput = new FileInputStream(new File(name));
+            File targetDir = new File("playlists");
+            File targetFile = new File(targetDir, name);
+            FileInputStream finput = new FileInputStream(targetFile);
             ObjectInputStream oinput = new ObjectInputStream(finput);
 
             Playlist playlist = (Playlist) oinput.readObject();
@@ -75,13 +79,13 @@ public class PersistenceService {
             finput.close();
             return playlist;
         } catch (FileNotFoundException e) {
-            System.out.println("Cannot find file:"+e.getMessage());
+            System.out.println("Cannot find file: "+e.getMessage());
             throw new RuntimeException(e);
         } catch (IOException e) {
-            System.out.println("Error initializing stream:"+e.getMessage());
+            System.out.println("Error initializing stream: "+e.getMessage());
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
-            System.out.println("Cannot find class:"+e.getMessage());
+            System.out.println("Cannot find class: "+e.getMessage());
             throw new RuntimeException(e);
         }
     }
